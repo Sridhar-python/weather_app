@@ -1,0 +1,162 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.5s;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.8s ease-out;
+  color: #333;
+  text-align: center;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4facfe;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.search-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* Input */
+.input-container {
+  position: relative;
+  display: inline-block;
+  width: 70%;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px 0px 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 18px;
+  color: #999;
+}
+
+/* Button */
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #4facfe;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #00f2fe;
+}
+
+/* Result */
+#result {
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #1e1e2f, #3a3a52);
+  color: #fff;
+}
+
+body.dark .container {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+body.dark input,
+body.dark button {
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
